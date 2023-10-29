@@ -1,4 +1,5 @@
 ﻿using ElansPieShop.Models;
+using ElansPieShop.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ElansPieShop.Controllers
@@ -16,8 +17,12 @@ namespace ElansPieShop.Controllers
 
         public IActionResult List()
         {
-            ViewBag.CurrentCategory = "Cheese cakes";
-            return View(_pieRepository.AllPies);
+            //ViewBag.CurrentCategory = "Cheese cakes";
+            //return View(_pieRepository.AllPies);
+
+            PieListViewModels pieListViewModels = new PieListViewModels
+                (_pieRepository.AllPies, "Cheese cakes");
+            return View(pieListViewModels);
         }
     }
 }

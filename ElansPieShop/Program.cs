@@ -1,0 +1,23 @@
+using ElansPieShop.Models;
+
+var builder = WebApplication.CreateBuilder(args);
+
+
+builder.Services.AddScoped<ICategoryRepository, MockCategoryRepository>(); //added own service
+builder.Services.AddScoped<IPieRepository, MockPieRepository>();
+
+builder.Services.AddControllersWithViews();// bringing services that enable mvc in application
+
+var app = builder.Build();
+
+app.UseStaticFiles();   //middleware that uses the static files.
+
+if(app.Environment.IsDevelopment())
+{
+    app.UseDeveloperExceptionPage();
+}
+
+app.MapDefaultControllerRoute();
+//let mvc handle incoming requests on controller(endpoint middleware)
+
+app.Run();

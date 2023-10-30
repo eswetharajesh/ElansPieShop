@@ -21,7 +21,7 @@ namespace ElansPieShop.Controllers
             //return View(_pieRepository.AllPies);
 
             PieListViewModels pieListViewModels = new PieListViewModels
-                (_pieRepository.AllPies, "Cheese cakes");
+                (_pieRepository.AllPies, "All pies");
             return View(pieListViewModels);
         }
         public IActionResult Details(int id)

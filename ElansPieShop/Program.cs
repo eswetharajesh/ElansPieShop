@@ -23,7 +23,8 @@ if(app.Environment.IsDevelopment())
     app.UseDeveloperExceptionPage();
 }
 
-app.MapDefaultControllerRoute();
+app.MapDefaultControllerRoute();//default controller  "{controller=Home}/{action=Index}/{id?}"
+//middleware component that points to the actual action on the controller
 //let mvc handle incoming requests on controller(endpoint middleware)
 
 DbInitializer.Seed(app); // to call appbuilder in DbIntitializer

@@ -24,5 +24,14 @@ namespace ElansPieShop.Controllers
                 (_pieRepository.AllPies, "Cheese cakes");
             return View(pieListViewModels);
         }
+        public IActionResult Details(int id) //action method returns the view that contains details
+        {
+            var pie = _pieRepository.GetPieById(id);
+            if (pie == null)
+                return NotFound();
+            return View(pie);
+            
+
+        }
     }
 }

@@ -26,4 +26,6 @@ if(app.Environment.IsDevelopment())
 app.MapDefaultControllerRoute();
 //let mvc handle incoming requests on controller(endpoint middleware)
 
+DbInitializer.Seed(app); // to call appbuilder in DbIntitializer
+
 app.Run();

@@ -4,8 +4,8 @@ using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 
 
-builder.Services.AddScoped<ICategoryRepository, MockCategoryRepository>(); //added own service
-builder.Services.AddScoped<IPieRepository, MockPieRepository>();
+builder.Services.AddScoped<ICategoryRepository, CategoryRepository>(); //added own service
+builder.Services.AddScoped<IPieRepository, PieRepository>();
 
 builder.Services.AddControllersWithViews();// bringing services that enable mvc in application
 

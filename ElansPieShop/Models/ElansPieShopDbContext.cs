@@ -2,7 +2,7 @@
 
 namespace ElansPieShop.Models
 {
-    public class ElansPieShopDbContext : DbContext
+    public class ElansPieShopDbContext : DbContext // inherits from DbContext
     {
         public ElansPieShopDbContext(DbContextOptions<ElansPieShopDbContext> options) : base(options)// constructor
         {
@@ -10,6 +10,6 @@ namespace ElansPieShop.Models
         }
 
         public DbSet<Category> Categories { get; set; }
-        public DbSet<Pie> Pies { get; set; }
+        public DbSet<Pie> Pies { get; set; }//property 
     }
 }

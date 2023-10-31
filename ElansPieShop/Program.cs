@@ -7,6 +7,10 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>(); //added own service
 builder.Services.AddScoped<IPieRepository, PieRepository>();
 
+builder.Services.AddScoped<IShoppingCart, ShoppingCart>(sp => ShoppingCart.GetCart(sp));// to generate cart 
+builder.Services.AddSession();
+builder.Services.AddHttpContextAccessor();
+
 builder.Services.AddControllersWithViews();// bringing services that enable mvc in application
 
 builder.Services.AddDbContext<ElansPieShopDbContext>(options => {
@@ -16,9 +20,10 @@ builder.Services.AddDbContext<ElansPieShopDbContext>(options => {
 
 var app = builder.Build();
 
-app.UseStaticFiles();   //middleware that uses the static files.
+app.UseStaticFiles();//middleware that uses the static files.
+app.UseSession();
 
-if(app.Environment.IsDevelopment())
+if (app.Environment.IsDevelopment())
 {
     app.UseDeveloperExceptionPage();
 }

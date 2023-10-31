@@ -11,5 +11,7 @@ namespace ElansPieShop.Models
 
         public DbSet<Category> Categories { get; set; }
         public DbSet<Pie> Pies { get; set; }//property 
+
+        public DbSet<ShoppingCartItem> ShoppingCartItems { get; set;}
     }
 }
